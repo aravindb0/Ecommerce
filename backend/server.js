@@ -8,9 +8,20 @@ import productRoutes from "./routes/product.js";
 dotenv.config();
 
 const app = express();
+const allowedOrigins = [
+  "https://mart-eight-sigma.vercel.app",
+  "https://mart-glh2bm2i7-aravindb0s-projects.vercel.app"
+];
+
 app.use(cors({
-  origin: "https://mart-eight-sigma.vercel.app",
-  Credentials:true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 }));
 app.use(express.json());
 app.use("/api/auth", authRoutes);

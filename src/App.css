@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #fff9d2;
+  --color-accent: #e8edf2;
+  --color-accent-strong: #d9e1e9;
+  --color-text: #2c3947;
+  --color-surface: #fffdf0;
+  --color-border: #e5ddb8;
+  --color-on-accent: #2c3947;
+  --color-muted: #5d6a76;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(145deg, var(--color-bg) 0%, #f5edbf 100%);
+  min-height: 100vh;
+  color: var(--color-text);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+  font-weight: 500;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px 10px;
+  }
+}

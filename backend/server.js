@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: "https://mart-eight-sigma.vercel.app/",
+  origin: "https://mart-eight-sigma.vercel.app",
   Credentials:true
 }));
 app.use(express.json());

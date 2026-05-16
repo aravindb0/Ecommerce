@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import "../styles/Admin.css";
+import API_URL from "../services/api";
 
 function Admin() {
   const { token } = useContext(AuthContext);
@@ -26,7 +27,7 @@ function Admin() {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/products");
+      const res = await fetch(`${API_URL}/api/products`);
       const data = await res.json();
       setProducts(data);
     } catch (err) {
@@ -51,7 +52,7 @@ function Admin() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/products", {
+      const res = await fetch(`${API_URL}/api/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,7 +89,7 @@ function Admin() {
     setDeletingId(product._id);
 
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${product._id}`, {
+      const res = await fetch(`${API_URL}/api/products/${product._id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`
